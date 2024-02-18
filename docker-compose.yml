@@ -12,8 +12,6 @@ services:
       - app_conf:/opt/adguardhome/conf
     networks:
       proxy_apps:
-    labels:
-      backups: "false"
     dns:
       - "1.1.1.1"
       - "1.0.0.1"
