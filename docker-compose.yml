@@ -12,8 +12,6 @@ services:
       - app_conf:/opt/adguardhome/conf
     networks:
       proxy_apps:
-    labels:
-      backups: "true"
 
 volumes:
   app_data:
