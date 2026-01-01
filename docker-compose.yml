@@ -5,17 +5,19 @@ services:
     ports:
       - "53:53/tcp"
       - "53:53/udp"
+      environment:
+        - CADDY_DOMAIN
+        - CADDY_TYPE=${CADDY_TYPE:-internal}
+        - CADDY_PORT=${CADDY_PORT:-3000}
     volumes:
       - app_data:/opt/adguardhome/work
       - app_conf:/opt/adguardhome/conf
     networks:
-      proxy_apps:
+      caddy:
+
+networks:
+  caddy:
 
 volumes:
   app_data:
   app_conf:
-
-networks:
-  proxy_apps:
-    name: proxy_apps
-    external: true
